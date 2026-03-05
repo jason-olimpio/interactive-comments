@@ -1,6 +1,6 @@
 # Interactive Comments
 
-A Commenting system featuring nested replies and a polished interface inspired by modern social platforms.
+A commenting system featuring nested replies and a polished interface inspired by modern social platforms.
 
 ## Features
 
