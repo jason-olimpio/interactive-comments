@@ -1,16 +1,20 @@
-# 💬 Interactive Comments
+# Interactive Comments
 
-A high-performance, nested commenting system built with **React 19**, **Zustand**, and **Immer**. This project features a recursive data structure to handle multi-level replies, persistent storage, and a polished UI inspired by modern social platforms.
+A Commenting system featuring nested replies and a polished interface inspired by modern social platforms.
 
-## 🚀 Features
+## Features
 
-* **Recursive Nesting**: Supports deep reply threads using recursive components.
-* **Persistence**: Comments and votes are saved to `localStorage` using Zustand's persist middleware.
-* **CRUD Operations**: Full ability to add, edit, reply to, and delete comments.
-* **Voting System**: Weighted voting logic (Upvote/Downvote) with local state tracking.
-* **Responsive Design**: Mobile-first approach with optimized layouts for desktop and handheld devices.
+* **Threaded Conversations**: Support for multi-level nesting, allowing users to reply directly to any comment and follow deep discussion threads easily.
 
-## 🛠️ Tech Stack
+* **Automatic Saving**: All comments, replies, and votes are instantly saved to the browser, ensuring data persists even after a page refresh.
+
+* **Full Conversation Control**: Complete ability to create, edit, reply to, and remove comments in real-time.
+
+* **Interactive Voting**: A balanced upvote and downvote system that tracks user interactions and updates scores instantly.
+
+* **Adaptive Interface**: A mobile-first design that maintains readability and layout integrity across all screen sizes.
+
+## Tech Stack
 
 | Technology | Purpose |
 | --- | --- |
