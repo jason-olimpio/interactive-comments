@@ -5,13 +5,9 @@ A commenting system featuring nested replies and a polished interface inspired b
 ## Features
 
 * **Threaded Conversations**: Support for multi-level nesting, allowing users to reply directly to any comment and follow deep discussion threads easily.
-
 * **Automatic Saving**: All comments, replies, and votes are instantly saved to the browser, ensuring data persists even after a page refresh.
-
 * **Full Conversation Control**: Complete ability to create, edit, reply to, and remove comments in real-time.
-
 * **Interactive Voting**: A balanced upvote and downvote system that tracks user interactions and updates scores instantly.
-
 * **Adaptive Interface**: A mobile-first design that maintains readability and layout integrity across all screen sizes.
 
 ## Tech Stack
