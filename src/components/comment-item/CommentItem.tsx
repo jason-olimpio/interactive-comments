@@ -17,15 +17,22 @@ type CommentItemProps = {
 
 const timeAgo = (value: string) => {
   const date = new Date(value);
-
+  
   if (Number.isNaN(date.getTime())) return value;
+
+  const diffInSeconds = Math.floor(
+    (new Date().getTime() - date.getTime()) / 1000
+  );
+
+  if (diffInSeconds < 30) return 'just now';
 
   return formatDistanceToNow(date, { addSuffix: true });
 };
 
 const CommentItem = ({ comment }: CommentItemProps) => {
   const { id, content, createdAt, score, user, replies, replyingTo } = comment;
-  const { toggleUpvote, toggleDownvote, data, editComment, deleteComment } = useCommentStore();
+  const { toggleUpvote, toggleDownvote, data, editComment, deleteComment } =
+    useCommentStore();
 
   const [isReplying, setIsReplying] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -35,8 +42,14 @@ const CommentItem = ({ comment }: CommentItemProps) => {
   const isOwner = data?.currentUser?.username === user.username;
 
   const handleEdit = {
-    start: () => { setDraft(content); setIsEditing(true); },
-    cancel: () => { setDraft(content); setIsEditing(false); },
+    start: () => {
+      setDraft(content);
+      setIsEditing(true);
+    },
+    cancel: () => {
+      setDraft(content);
+      setIsEditing(false);
+    },
     save: () => {
       const next = draft.trim();
 
@@ -67,26 +80,30 @@ const CommentItem = ({ comment }: CommentItemProps) => {
   );
 
   return (
-    <div className="space-y-4">
-      <section className="bg-white p-5 rounded-xl flex flex-col md:flex-row gap-5 shadow-xs">
-        <div className="hidden md:block">{scoreControl}</div>
+    <div className='space-y-4'>
+      <section className='bg-white p-5 rounded-xl flex flex-col md:flex-row gap-5 shadow-xs'>
+        <div className='hidden md:block'>{scoreControl}</div>
 
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-3 min-w-0">
-              <img src={user.image.webp} alt="" className="w-8 h-8" />
-              <span className="font-bold text-slate-800 truncate">{user.username}</span>
+        <div className='flex-1 min-w-0'>
+          <div className='flex items-center justify-between mb-2'>
+            <div className='flex items-center gap-3 min-w-0'>
+              <img src={user.image.webp} alt='' className='w-8 h-8' />
+              <span className='font-bold text-slate-800 truncate'>
+                {user.username}
+              </span>
 
               {isOwner && (
-                <span className="bg-indigo-700 text-white text-[11px] font-bold px-2 py-1 rounded">
+                <span className='bg-indigo-700 text-white text-[11px] font-bold px-2 py-1 rounded'>
                   you
                 </span>
               )}
 
-              <span className="text-slate-500 whitespace-nowrap">{timeAgo(createdAt)}</span>
+              <span className='text-slate-500 whitespace-nowrap'>
+                {timeAgo(createdAt)}
+              </span>
             </div>
 
-            <div className="hidden md:block">{actionButtons}</div>
+            <div className='hidden md:block'>{actionButtons}</div>
           </div>
 
           <CommentBody
@@ -99,7 +116,7 @@ const CommentItem = ({ comment }: CommentItemProps) => {
             onSave={handleEdit.save}
           />
 
-          <div className="mt-4 flex items-center justify-between md:hidden">
+          <div className='mt-4 flex items-center justify-between md:hidden'>
             {scoreControl}
             {actionButtons}
           </div>
@@ -117,10 +134,13 @@ const CommentItem = ({ comment }: CommentItemProps) => {
 
       <CommentReplies replies={replies} />
 
-      <DeleteAlert 
-        open={isDeleteOpen} 
-        onCancel={() => setIsDeleteOpen(false)} 
-        onConfirm={() => { deleteComment(id); setIsDeleteOpen(false); }} 
+      <DeleteAlert
+        open={isDeleteOpen}
+        onCancel={() => setIsDeleteOpen(false)}
+        onConfirm={() => {
+          deleteComment(id);
+          setIsDeleteOpen(false);
+        }}
       />
     </div>
   );
