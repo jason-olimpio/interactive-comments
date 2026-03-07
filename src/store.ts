@@ -19,9 +19,7 @@ const filterComments = (
   username: string
 ): Comment[] =>
   items
-    .filter(
-      comment => comment.id !== id || comment.user.username !== username
-    )
+    .filter(comment => comment.id !== id || comment.user.username !== username)
     .map(comment => ({
       ...comment,
       replies: filterComments(id, comment.replies || [], username)
@@ -36,7 +34,7 @@ export const useCommentStore = create<CommentStore>()(
       votesById: {},
 
       syncData: fetchedData =>
-        set(state => {
+        set((state) => {
           state.data = state.data ?? fetchedData;
         }),
 
@@ -55,6 +53,7 @@ export const useCommentStore = create<CommentStore>()(
       addReply: (parentId, content, replyingTo) =>
         set(({ data }) => {
           const parent = findComment(parentId, data?.comments || []);
+          
           parent?.replies.push({
             id: Date.now(),
             content,
