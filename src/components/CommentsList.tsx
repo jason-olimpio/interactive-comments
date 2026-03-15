@@ -1,6 +1,6 @@
 import { use, useEffect } from 'react';
 
-import { useCommentStore } from '../store';
+import { useCommentStore } from '../store/store';
 import { dataPromise } from '../api';
 
 import CommentItem from './comment-item/CommentItem';

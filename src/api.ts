@@ -1,4 +1,4 @@
-import type { CommentData } from './types';
+import type { CommentData } from './store/types';
 
 const fetchData = async (): Promise<CommentData> => {
   const response = await fetch('./data.json');

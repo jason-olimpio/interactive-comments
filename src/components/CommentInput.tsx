@@ -1,7 +1,7 @@
 import { useState, type SubmitEventHandler } from 'react';
 
-import { useCommentStore } from '../store';
-import type { User } from '../types';
+import { useCommentStore } from '../store/store';
+import type { User } from '../store/types';
 
 type Props = {
   parentId?: number;

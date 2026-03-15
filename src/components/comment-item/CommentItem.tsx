@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { formatDistanceToNow } from 'date-fns';
-import { useCommentStore } from '../../store';
-
-import type { Comment } from '../../types';
+import { useCommentStore } from '../../store/store';
+import type { Comment } from '../../store/types';
 
 import CommentInput from '../CommentInput';
 import DeleteAlert from '../DeleteAlert';

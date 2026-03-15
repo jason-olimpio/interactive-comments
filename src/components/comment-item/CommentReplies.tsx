@@ -1,6 +1,6 @@
 import CommentItem from './CommentItem';
 
-import type { Comment } from '../../types';
+import type { Comment } from '../../store/types';
 
 type CommentRepliesProps = {
   replies?: Comment[];
