@@ -34,7 +34,7 @@ const DeleteAlert = ({ open, onCancel, onConfirm }: DeleteAlertProps) => {
           <button
             type='button'
             onClick={onCancel}
-            className='rounded-4xl bg-slate-500 px-4 py-3 font-medium text-white uppercase hover:opacity-70'
+            className='rounded-4xl cursor-pointer bg-slate-500 px-4 py-3 font-medium text-white uppercase hover:opacity-70'
           >
             No, cancel
           </button>
@@ -42,7 +42,7 @@ const DeleteAlert = ({ open, onCancel, onConfirm }: DeleteAlertProps) => {
           <button
             type='button'
             onClick={onConfirm}
-            className='rounded-4xl bg-red-400 px-4 py-3 font-medium text-white uppercase hover:opacity-70'
+            className='rounded-4xl cursor-pointer bg-red-400 px-4 py-3 font-medium text-white uppercase hover:opacity-70'
           >
             Yes, delete
           </button>
